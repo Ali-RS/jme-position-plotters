@@ -45,3 +45,5 @@ To be updated.
 
 The mesh plotter defines valid points in a mesh based defined rules.
 See the test class for a working explanation and demo of these rules.
+
+![Mesh Plotter](https://i.ibb.co/kGLhRTN/image.png)
