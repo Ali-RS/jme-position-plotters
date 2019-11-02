@@ -104,6 +104,8 @@ public class TestMeshPlotter extends SimpleApplication {
 
         // create the mesh plotter.
         MeshPlotter meshPlotter = new MeshPlotter(plotterSettings, noisePlacementRule);
+        meshPlotter.setMin(new Vector3f(0, 0, 0));
+        meshPlotter.setMax(new Vector3f(128, 128, 128));
         meshPlotter.processMesh(mesh);
 
         // create the generated mesh based on the configuration.

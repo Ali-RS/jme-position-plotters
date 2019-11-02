@@ -40,8 +40,6 @@ public class TestCirclePlotter extends SimpleApplication {
         int sizeX = 128;
         int sizeY = 128;
 
-
-
         for (int x = 0; x < sizeX * 9; x += sizeX) {
             for (int y = 0; y < sizeY * 5; y += sizeY) {
 
