@@ -17,9 +17,11 @@ import com.jme3.math.Vector2f;
 import com.jme3.math.Vector3f;
 import com.jme3.scene.Geometry;
 import com.jme3.scene.Mesh;
+import com.jme3.scene.Spatial;
 import com.jme3.scene.VertexBuffer;
 import com.jme3.system.AppSettings;
 import com.jme3.util.BufferUtils;
+import com.jme3.util.TangentBinormalGenerator;
 
 import java.nio.FloatBuffer;
 import java.nio.IntBuffer;
@@ -109,22 +111,13 @@ public class TestMeshPlotter extends SimpleApplication {
         // create the generated mesh based on the configuration.
         Mesh plotterMesh = meshPlotter.createMesh();
 
-        // These positions will be used for grass, so we'll use the grass material.
-        Material material = new Material(assetManager, "MatDefs/Vegetation-Sprite.j3md");
-        material.setTexture("DiffuseMap", assetManager.loadTexture("Textures/sprite-grass.png"));
-        material.setTexture("Noise", assetManager.loadTexture("Textures/noise-x3-512.png"));
-        material.setFloat("AlphaDiscardThreshold", 0.65f);
-        // material.setFloat("WindStrength", 0.02f);
 
-        // if we move the world instead of the camera we would adjust this.
-        // This is generally used for "conveyor belt" endless worlds to circumvent floating-point precision
-        // at very high values.
-        material.setVector3("WorldOffset", new Vector3f());
-
-        // create the grass geometry.
-        Geometry plotterGeom = new Geometry("Plotter Geom", plotterMesh);
-        plotterGeom.setMaterial(material);
-        rootNode.attachChild(plotterGeom);
+        Geometry debug = new Geometry("Debug normals",  TangentBinormalGenerator.genNormalLines(plotterMesh, 0.1f)
+        );
+        Material debugMat = assetManager.loadMaterial("Common/Materials/VertexColor.j3m");
+        debug.setMaterial(debugMat);
+        debug.setCullHint(Spatial.CullHint.Never);
+        rootNode.attachChild(debug);
 
     }
 
