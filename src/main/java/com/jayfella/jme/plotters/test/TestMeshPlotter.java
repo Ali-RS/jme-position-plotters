@@ -67,8 +67,6 @@ public class TestMeshPlotter extends SimpleApplication {
         plotterSettings.setMinSize(0.3f); // minimum size of the grass.
         plotterSettings.setMaxSize(0.8f); // maximum size of the grass
         plotterSettings.setMaxAngle(45); // maximum angle the grass will appear.
-        // plotterSettings.setNoiseScale(0.5f);
-        // plotterSettings.setSecondChance(0.8f);
         plotterSettings.setDensity(0.1f);
 
         // create some noise to determine where grass will and will not grow.
@@ -147,6 +145,8 @@ public class TestMeshPlotter extends SimpleApplication {
 
         return mesh;
     }
+
+    // data to generate the test terrain.
 
     private static final Vector3f[] vertData = {
             new Vector3f( 0.0000f, 1.6210f, 4.0000f ),
