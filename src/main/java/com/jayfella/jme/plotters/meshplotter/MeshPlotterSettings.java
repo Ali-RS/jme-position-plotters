@@ -32,7 +32,7 @@ public class MeshPlotterSettings {
 
     /**
      * Sets the maximum height the mesh plotter will plot a position.
-     * @param maxWorldHeight
+     * @param maxWorldHeight the maximum height the mesh plotter will plot a position.
      */
     public void setMaxWorldHeight(float maxWorldHeight) {
         this.maxWorldHeight = maxWorldHeight;
@@ -80,7 +80,7 @@ public class MeshPlotterSettings {
 
     /**
      * Determines how dense or close together the plotter positions can be.
-     * @param density
+     * @param density how dense or close together the plotter positions can be.
      */
     public void setDensity(float density) {
         this.density = density;
